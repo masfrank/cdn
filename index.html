@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <title></title>
+</head>
+<style>
+    #app{text-align: center;margin: 0 auto; background-color: #f8fbff}
+    h1{
+        margin-top: 10px;
+        color: #409EFF;
+    }
+    .avatar-uploader .el-upload {  
+     border-radius: 6px;
+     cursor: pointer;
+     position: relative;
+     overflow: hidden;
+     background-color: #fff;
+     border: 1px dashed #d9d9d9;
+     box-sizing: border-box;
+     width: 360px;
+     height: 180px;
+     text-align: center;
+    }
+    .avatar-uploader .el-upload:hover {
+      border-color: #409EFF;
+    }
+    .avatar-uploader-icon {
+      font-size: 28px;
+      color: #8c939d;
+      width: 178px;
+      height: 178px;
+      line-height: 178px;
+      text-align: center;
+    }
+    .avatar {
+      width: 178px;
+      height: 178px;
+      display: block;
+    }
+</style>
+<body>
+    <div id="app" >
+
+        <h1>
+            Img-hosting
+            <el-button type="text"  @click="open1">Look at Me</el-button>
+        </h1>
+        
+        <div>
+            <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false"
+            :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+                <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            </el-upload>
+        </div>
+            
+        <div>
+            <p><p></p><el-button type="primary" :loading="true">Img-hosting is loading.....</el-button>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+
+        },
+        methods: {
+            open1() {
+            const h = this.$createElement;
+            this.$notify({
+            title: 'Notice',
+            message: h('i', { style: 'color: teal'}, 'This is My Img-hosting（Homework Test）')
+            });
+        },
+    }
+
+    })
+</script>
+</html>
