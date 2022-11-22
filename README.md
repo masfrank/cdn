@@ -1,2 +1,2 @@
-# imghosting
-imghosting
+# img-hosting
+
